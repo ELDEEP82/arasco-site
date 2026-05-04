@@ -2,19 +2,24 @@ name: Auto Deploy Arasco
 on:
   push:
     branches:
-      - main # هيشتغل أول ما تعمل Push لفرع main
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4 # حدثناها لنسخة v4 عشان التحذير الأصفر اللي ظهرلك
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Install and Build
         run: |
           npm install
-          npm run build # ده اللي بيطلع فولدر dist
+          npm run build
 
       - name: Deploy to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -22,6 +27,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/    # بياخد الملفات الجاهزة من لابتوبك الـ Dell
-          server-dir: /         # التعديل هنا: "/" يعني ارمي الملفات في وش اليوزر أول ما يدخل
-          state-name: .ftp-deploy-sync-state.json # عشان يسرع الرفع المرة الجاية
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          state-name: .ftp-deploy-sync-state.json
