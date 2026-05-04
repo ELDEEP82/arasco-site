@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== GLOBAL RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy:      #1B3A6B;
+  --navy-dark: #0F2347;
+  --navy-light:#2A5298;
+  --red:       #E31E24;
+  --white:     #FFFFFF;
+  --off-white: #F8FAFB;
+  --gray:      #F1F5F9;
+  --text:      #1E293B;
+  --muted:     #64748B;
+}
+
+
+/* ===== LANGUAGE / FONT SWITCHING ===== */
+[lang="ar"] {
+  font-family: 'Cairo', 'Almarai', sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+[lang="en"] {
+  font-family: 'Inter', sans-serif;
+  direction: ltr;
+  text-align: left;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0F2347;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E31E24, #1B3A6B);
+  border-radius: 4px;
+}
+
+/* ===== GLASSMORPHISM ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-dark {
+  background: rgba(15, 35, 71, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text-navy {
+  background: linear-gradient(135deg, #1B3A6B 0%, #2A5298 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-red {
+  background: linear-gradient(135deg, #E31E24 0%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== ANIMATED BLOB ===== */
+.blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blobAnim 8s ease-in-out infinite alternate;
+}
+
+@keyframes blobAnim {
+  0%   { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25%  { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50%  { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75%  { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+/* ===== PARTICLE CANVAS ===== */
+#particles-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ===== SECTION DIVIDER ===== */
+.wave-divider {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+/* ===== PRODUCT SLIDER ===== */
+.slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== CARD HOVER EFFECT ===== */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(27, 58, 107, 0.2);
+}
+
+/* ===== CTA BUTTON PULSE ===== */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(227, 30, 36, 0.5); }
+  50%       { box-shadow: 0 0 0 15px rgba(227, 30, 36, 0); }
+}
+
+.btn-pulse {
+  animation: ctaPulse 2.5s ease-in-out infinite;
+}
+
+/* ===== COUNTER ANIMATION ===== */
+.counter-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav-enter {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SWIPE INDICATOR ===== */
+@keyframes swipeHint {
+  0%, 100% { transform: translateX(0); opacity: 1; }
+  50%       { transform: translateX(-8px); opacity: 0.6; }
+}
+
+/* ===== UTILITIES ===== */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ===== STAR ANIMATION ===== */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.3); }
+}
+
+.star {
+  animation: twinkle var(--duration, 3s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* ===== LOADING SHIMMER ===== */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ===== FLOATING LABEL ===== */
+.floating-badge {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ===== SECTION HEADING UNDERLINE ===== */
+.heading-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, #E31E24, #1B3A6B);
+  border-radius: 2px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #1B3A6B, #E31E24);
+}
+
+/* ===== NAV ACTIVE ===== */
+.nav-link-active {
+  color: #E31E24;
+  position: relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 2px;
+  background: #E31E24;
+  border-radius: 1px;
+}
+
+/* ===== FOOTER GRADIENT ===== */
+.footer-gradient {
+  background: linear-gradient(180deg, #0F2347 0%, #060F20 100%);
+}
+
+/* ===== RESPONSIVE VIDEO/IMAGE COVER ===== */
+.img-cover {
+  object-fit: cover;
+  object-position: center;
+}
