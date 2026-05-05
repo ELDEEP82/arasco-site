@@ -1,103 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLang } from '../context/LangContext';
-
-/* Animated Particle Canvas */
-function ParticleCanvas() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animId;
-    let particles = [];
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Create particles
-    for (let i = 0; i < 30; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2.5 + 0.5,
-        dx: (Math.random() - 0.5) * 0.4,
-        dy: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.6 + 0.1,
-        color: Math.random() > 0.6 ? '#E31E24' : '#FFFFFF',
-      });
-    }
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.opacity;
-        ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-
-      // Draw connecting lines
-      ctx.globalAlpha = 0.08;
-      ctx.strokeStyle = '#FFFFFF';
-      ctx.lineWidth = 0.5;
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-      ctx.globalAlpha = 1;
-      animId = requestAnimationFrame(draw);
-    };
-    draw();
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} id="particles-canvas" />;
-}
-
-/* Floating Blob */
-function FloatingBlob({ className, color, size = 400, delay = 0, opacity = 0.1 }) {
-  return (
-    <motion.div
-      className={`absolute ${className} blob pointer-events-none`}
-      style={{
-        width: size, height: size,
-        background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        opacity: opacity,
-      }}
-      animate={{
-        x: [0, 30, -20, 0],
-        y: [0, -50, 20, 0],
-        scale: [1, 1.1, 0.9, 1],
-      }}
-      transition={{ duration: 10, repeat: Infinity, delay, ease: 'easeInOut' }}
-    />
-  );
-}
 
 /* Stat Feature */
 function StatFeature({ label, isRTL, icon }) {
@@ -147,40 +49,28 @@ function PremiumHeroVisual() {
       {/* Main Glass Shield */}
       <motion.div
         animate={{ 
-          y: [0, -15, 0],
-          rotateY: [-8, 8, -8],
-          rotateX: [5, -5, 5]
+          y: [0, -10, 0],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformStyle: 'preserve-3d', perspective: '1200px' }}
-        className="relative z-10 w-72 h-[420px] md:w-80 md:h-[480px] rounded-[3.5rem] p-[2px] bg-gradient-to-br from-white/20 via-transparent to-white/5 shadow-2xl overflow-hidden group"
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="relative z-10 w-72 h-[420px] md:w-80 md:h-[480px] rounded-[3.5rem] p-[2px] bg-gradient-to-b from-brand-navyLight to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group"
       >
         {/* Inner Content Container */}
-        <div className="w-full h-full rounded-[3.4rem] bg-[#020617]/60 backdrop-blur-3xl flex flex-col items-center justify-center p-10 relative overflow-hidden border border-white/5">
+        <div className="w-full h-full rounded-[3.4rem] bg-brand-navyDark/90 backdrop-blur-3xl flex flex-col items-center justify-center p-10 relative overflow-hidden border border-white/5">
           
-          {/* Scanning Shimmer Effect */}
-          <motion.div
-            animate={{ y: ['-100%', '200%'] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-transparent via-white/5 to-transparent -skew-y-12"
-          />
+          {/* Subtle Accent Glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-20 bg-brand-navyLight/30 rounded-full blur-[40px] pointer-events-none" />
 
-          {/* Glowing Center Orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-navyLight/10 rounded-full blur-[80px] pointer-events-none" />
+
 
           {/* Logo Showcase */}
           <div className="w-36 h-36 md:w-44 md:h-44 mb-10 relative">
-             <motion.div 
-               animate={{ scale: [1, 1.1, 1] }}
-               transition={{ duration: 4, repeat: Infinity }}
-               className="absolute inset-0 bg-white/5 rounded-full blur-xl"
-             />
+             <div className="absolute inset-0 bg-white/5 rounded-full blur-xl" />
              <img 
                src="/arasco-logo.png" 
                alt="ARASCO" 
                className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]" 
                onError={(e) => {
-                 e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-8xl drop-shadow-lg">🛡️</div>`;
+                 e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-8xl drop-shadow-lg opacity-80">🛡️</div>`;
                }}
              />
           </div>
@@ -200,24 +90,6 @@ function PremiumHeroVisual() {
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Floating Micro-Orbs */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          animate={{ 
-            y: [0, (i % 2 === 0 ? -60 : 60), 0],
-            x: [0, (i % 3 === 0 ? 30 : -30), 0],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{ duration: 6 + i * 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-2 h-2 bg-white rounded-full blur-[2px]"
-          style={{ 
-            top: `${10 + i * 20}%`, 
-            left: `${(i * 25) % 100}%`,
-          }}
-        />
-      ))}
     </div>
   );
 }
@@ -237,17 +109,12 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-hero-gradient">
-      {/* Particle Canvas */}
-      <ParticleCanvas />
-
-      {/* Floating Blobs (Toned Down) */}
-      <FloatingBlob className="-top-20 -left-20" color="#E31E24" size={500} opacity={0.03} delay={0} />
-      <FloatingBlob className="top-1/2 -right-32" color="#0B1120" size={600} opacity={0.05} delay={3} />
-      <FloatingBlob className="-bottom-32 left-1/3" color="#E31E24" size={400} opacity={0.03} delay={6} />
-
-      {/* Gradient overlay (Subtle) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-navyDark/80 pointer-events-none" />
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-brand-navy">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-hero-gradient opacity-90" />
+      
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       <div className="container-custom relative z-10 pt-28 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

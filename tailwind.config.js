@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy:    '#020617',
-          navyDark:'#010409',
-          navyLight:'#0B1120',
+          navy:    '#0B132B',
+          navyDark:'#050914',
+          navyLight:'#1C2541',
           red:     '#E31E24',
           redDark: '#B71C1C',
           redLight:'#FF4444',
@@ -39,7 +39,7 @@ export default {
         inter:   ['Inter', 'sans-serif'],
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(180deg, #010409 0%, #020617 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #050914 0%, #0B132B 50%, #050914 100%)',
         'green-gradient': 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
         'card-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
       },
