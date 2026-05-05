@@ -114,70 +114,80 @@ function StatFeature({ label, isRTL, icon }) {
   );
 }
 
-/* Captivating Bubbles Animation */
-function AnimatedBubbles() {
+/* Premium Hero Visual */
+function PremiumHeroVisual() {
   return (
-    <div className="relative w-72 h-80 md:w-96 md:h-[400px] flex items-center justify-center pointer-events-none">
-      {/* Main Big Bubble */}
+    <div className="relative w-80 h-96 md:w-[450px] md:h-[500px] flex items-center justify-center">
+      {/* Animated glow background */}
       <motion.div
-        animate={{
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3],
+          rotate: [0, 90, 180, 270, 360]
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(44,82,130,0.2)_0%,transparent_70%)] pointer-events-none"
+      />
+
+      {/* Main Glass Card */}
+      <motion.div
+        animate={{ 
           y: [0, -20, 0],
-          scale: [1, 1.05, 1],
+          rotateX: [5, -5, 5],
+          rotateY: [-5, 5, -5]
         }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute z-20 w-64 h-64 md:w-80 md:h-80 rounded-full flex items-center justify-center"
-        style={{
-          background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), rgba(255,255,255,0.1) 40%, rgba(26,115,232,0.4) 80%, rgba(255,255,255,0.6) 100%)',
-          boxShadow: 'inset -10px -20px 40px rgba(26,115,232,0.5), inset 10px 20px 40px rgba(255,255,255,0.8), 0 20px 50px rgba(0,0,0,0.1)',
-          backdropFilter: 'blur(5px)',
-        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+        className="relative z-10 w-72 h-96 md:w-80 md:h-[450px] rounded-[3rem] p-1 border-2 border-white/20 shadow-2xl overflow-hidden"
       >
-        {/* Inner Logo or text inside the bubble (optional, but requested to remove logo so just abstract) */}
-        <motion.div 
-          animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="text-7xl drop-shadow-2xl opacity-80"
-        >
-          ✨
-        </motion.div>
-        {/* Shine highlight */}
-        <div className="absolute top-8 left-10 w-20 h-10 bg-white/60 rounded-full blur-md transform -rotate-45" />
+        {/* Glass content */}
+        <div className="w-full h-full rounded-[2.8rem] bg-white/5 backdrop-blur-xl flex flex-col items-center justify-center p-8 relative overflow-hidden">
+          {/* Shimmer effect */}
+          <motion.div
+            animate={{ x: ['-200%', '200%'] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+          />
+
+          {/* Logo/Icon */}
+          <div className="w-32 h-32 md:w-40 md:h-40 mb-8 relative">
+             <div className="absolute inset-0 bg-brand-navyLight/20 rounded-full blur-2xl animate-pulse"></div>
+             <img 
+               src="/arasco-logo.png" 
+               alt="ARASCO" 
+               className="w-full h-full object-contain relative z-10 drop-shadow-2xl" 
+               onError={(e) => {
+                 e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-8xl">✨</div>`;
+               }}
+             />
+          </div>
+
+          {/* Brand Info */}
+          <h3 className="text-3xl font-black text-white mb-2 tracking-widest uppercase">ARASCO</h3>
+          <div className="w-12 h-1 bg-brand-red rounded-full mb-4"></div>
+          <p className="text-white/60 text-center text-sm font-medium leading-relaxed">
+            Leading Global <br/> Cleaning & Care Solutions
+          </p>
+        </div>
       </motion.div>
 
-      {/* Small floating bubble 1 */}
-      <motion.div
-        animate={{
-          y: [0, -40, 0],
-          x: [0, 20, 0],
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute z-30 top-10 right-4 w-16 h-16 rounded-full"
-        style={{
-          background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.1) 60%, rgba(66,133,244,0.4) 100%)',
-          boxShadow: 'inset -5px -10px 20px rgba(66,133,244,0.5), inset 5px 10px 20px rgba(255,255,255,0.8)',
-        }}
-      >
-        <div className="absolute top-2 left-3 w-5 h-2 bg-white/70 rounded-full blur-sm transform -rotate-45" />
-      </motion.div>
-
-      {/* Small floating bubble 2 */}
-      <motion.div
-        animate={{
-          y: [0, -30, 0],
-          x: [0, -20, 0],
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute z-10 bottom-12 left-0 w-24 h-24 rounded-full"
-        style={{
-          background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), rgba(255,255,255,0.1) 60%, rgba(227,30,36,0.3) 100%)',
-          boxShadow: 'inset -5px -10px 20px rgba(227,30,36,0.4), inset 5px 10px 20px rgba(255,255,255,0.8)',
-        }}
-      >
-        <div className="absolute top-3 left-4 w-6 h-3 bg-white/70 rounded-full blur-sm transform -rotate-45" />
-      </motion.div>
-
-      {/* Glow Behind */}
-      <div className="absolute z-0 w-72 h-72 bg-brand-navyLight/40 rounded-full blur-[80px]" />
+      {/* Floating elements */}
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{ 
+            y: [0, i % 2 === 0 ? -40 : 40, 0],
+            x: [0, i % 2 === 0 ? 20 : -20, 0],
+            rotate: [0, 360]
+          }}
+          transition={{ duration: 8 + i * 2, repeat: Infinity, ease: "easeInOut" }}
+          className={`absolute w-${12 + i * 4} h-${12 + i * 4} glass border border-white/20 rounded-2xl opacity-40`}
+          style={{ 
+            top: `${20 + i * 25}%`, 
+            left: i % 2 === 0 ? '-10%' : '85%',
+          }}
+        />
+      ))}
     </div>
   );
 }
@@ -280,7 +290,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
             className="relative hidden lg:flex items-center justify-center perspective-1000"
           >
-            <AnimatedBubbles />
+            <PremiumHeroVisual />
           </motion.div>
         </div>
       </div>

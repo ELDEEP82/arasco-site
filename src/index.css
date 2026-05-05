@@ -10,9 +10,9 @@
 }
 
 :root {
-  --navy:      #1A73E8;
-  --navy-dark: #0D47A1;
-  --navy-light:#4285F4;
+  --navy:      #1B365D;
+  --navy-dark: #0D1B2A;
+  --navy-light:#2C5282;
   --red:       #E31E24;
   --white:     #FFFFFF;
   --off-white: #F8FAFB;
@@ -40,10 +40,10 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0D47A1;
+  background: #0D1B2A;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #E31E24, #1A73E8);
+  background: linear-gradient(180deg, #E31E24, #1B365D);
   border-radius: 4px;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .glass-dark {
-  background: rgba(13, 71, 161, 0.7);
+  background: rgba(13, 27, 42, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.08);
@@ -64,7 +64,7 @@
 
 /* ===== GRADIENT TEXT ===== */
 .gradient-text-navy {
-  background: linear-gradient(135deg, #1A73E8 0%, #4285F4 100%);
+  background: linear-gradient(135deg, #1B365D 0%, #2C5282 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,7 +137,7 @@
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(26, 115, 232, 0.2);
+  box-shadow: 0 30px 80px rgba(27, 54, 93, 0.2);
 }
 
 /* ===== CTA BUTTON PULSE ===== */
@@ -250,7 +250,7 @@
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, #1A73E8, #E31E24);
+  background: linear-gradient(180deg, #1B365D, #E31E24);
 }
 
 /* ===== NAV ACTIVE ===== */
@@ -271,7 +271,7 @@
 
 /* ===== FOOTER GRADIENT ===== */
 .footer-gradient {
-  background: linear-gradient(180deg, #0D47A1 0%, #060F20 100%);
+  background: linear-gradient(180deg, #0D1B2A 0%, #060F20 100%);
 }
 
 /* ===== RESPONSIVE VIDEO/IMAGE COVER ===== */
