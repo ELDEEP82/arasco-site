@@ -93,32 +93,7 @@ export default function WhyUs() {
           ))}
         </div>
 
-        {/* Bottom CTA Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 glass border border-white/15 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6"
-        >
-          <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h3 className="text-white text-xl font-black mb-1">
-              {isRTL ? 'مستعد تبدأ معنا؟' : 'Ready to get started?'}
-            </h3>
-            <p className="text-white/60 text-sm">
-              {isRTL ? 'تواصل معنا الآن واحصل على عرض سعر مجاني' : 'Contact us now and get a free price quote'}
-            </p>
-          </div>
-          <motion.a
-            href="#cta"
-            onClick={(e) => { e.preventDefault(); document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' }); }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="btn-pulse flex-shrink-0 bg-brand-red text-white font-bold px-8 py-4 rounded-2xl shadow-red hover:bg-brand-redDark transition-colors duration-300"
-          >
-            {isRTL ? '📋 اطلب عرض سعر مجاني' : '📋 Get Free Quote'}
-          </motion.a>
-        </motion.div>
+
       </div>
     </section>
   );
