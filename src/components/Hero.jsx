@@ -55,17 +55,13 @@ function PremiumHeroVisual() {
         <div className="absolute top-5 left-7 w-20 h-12 rounded-full bg-white/25 blur-xl pointer-events-none" />
         <div className="absolute top-4 left-6 w-10 h-6 rounded-full bg-white/40 blur-md pointer-events-none" />
 
-        {/* Logo + brand */}
-        <div className="relative z-10 text-center flex flex-col items-center gap-2">
-          <img
-            src="/arasco-logo.png"
-            alt="ARASCO"
-            className="w-20 h-20 object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.3)]"
-            onError={e => { e.target.style.display = 'none'; }}
-          />
-          <div className="w-10 h-0.5 bg-brand-red rounded-full" />
-          <span className="text-white/50 text-[9px] font-bold tracking-[0.3em] uppercase">Est. Egypt</span>
-        </div>
+        {/* Logo only */}
+        <img
+          src="/arasco-logo.png"
+          alt="ARASCO"
+          className="relative z-10 w-24 h-24 object-contain drop-shadow-[0_0_18px_rgba(255,255,255,0.35)]"
+          onError={e => { e.target.style.display = 'none'; }}
+        />
       </motion.div>
 
       {/* ── Floating bubbles ── */}
