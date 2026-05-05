@@ -44,7 +44,7 @@ function PremiumHeroVisual() {
       <motion.div
         animate={{ y: [0, -14, 0], scale: [1, 1.03, 1] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative z-20 w-56 h-56 rounded-full flex items-center justify-center"
+        className="relative z-20 w-56 h-56 rounded-full flex items-center justify-center overflow-hidden"
         style={{
           background: 'radial-gradient(circle at 35% 28%, rgba(255,255,255,0.22) 0%, rgba(27,58,107,0.55) 45%, rgba(5,9,20,0.92) 100%)',
           boxShadow: '0 0 70px rgba(42,82,152,0.55), 0 0 140px rgba(42,82,152,0.2), inset 0 2px 24px rgba(255,255,255,0.18)',
@@ -55,13 +55,69 @@ function PremiumHeroVisual() {
         <div className="absolute top-5 left-7 w-20 h-12 rounded-full bg-white/25 blur-xl pointer-events-none" />
         <div className="absolute top-4 left-6 w-10 h-6 rounded-full bg-white/40 blur-md pointer-events-none" />
 
-        {/* Logo only */}
-        <img
-          src="/arasco-logo.png"
-          alt="ARASCO"
-          className="relative z-10 w-24 h-24 object-contain drop-shadow-[0_0_18px_rgba(255,255,255,0.35)]"
-          onError={e => { e.target.style.display = 'none'; }}
-        />
+        {/* Inner bubbles */}
+        {[
+          { size: 38, left: '15%', bottom: '8%',  delay: 0,   dur: 3.2 },
+          { size: 22, left: '55%', bottom: '5%',  delay: 0.8, dur: 2.8 },
+          { size: 14, left: '30%', bottom: '20%', delay: 1.5, dur: 2.4 },
+          { size: 28, left: '68%', bottom: '15%', delay: 0.4, dur: 3.6 },
+          { size: 16, left: '42%', bottom: '40%', delay: 1.1, dur: 2.6 },
+          { size: 20, left: '10%', bottom: '38%', delay: 2.0, dur: 3.0 },
+          { size: 12, left: '75%', bottom: '42%', delay: 0.6, dur: 2.2 },
+          { size: 32, left: '35%', bottom: '60%', delay: 1.8, dur: 4.0 },
+          { size: 10, left: '60%', bottom: '65%', delay: 0.3, dur: 2.0 },
+        ].map((b, i) => (
+          <motion.div
+            key={i}
+            animate={{ y: [0, -(b.size * 5 + 60)], opacity: [0, 0.85, 0.85, 0] }}
+            transition={{
+              duration: b.dur,
+              repeat: Infinity,
+              delay: b.delay,
+              ease: 'easeIn',
+              times: [0, 0.15, 0.85, 1],
+            }}
+            className="absolute rounded-full pointer-events-none"
+            style={{
+              width:  b.size,
+              height: b.size,
+              left:   b.left,
+              bottom: b.bottom,
+              background: 'radial-gradient(circle at 30% 28%, rgba(255,255,255,0.55), rgba(100,160,255,0.18))',
+              border: '1px solid rgba(255,255,255,0.45)',
+              boxShadow: 'inset 0 1px 4px rgba(255,255,255,0.5), 0 2px 8px rgba(42,82,152,0.25)',
+            }}
+          />
+        ))}
+
+        {/* Water wave at bottom */}
+        <div
+          className="absolute bottom-0 left-0 w-full pointer-events-none"
+          style={{ height: '38%' }}
+        >
+          <svg viewBox="0 0 224 80" preserveAspectRatio="none" className="w-full h-full">
+            <motion.path
+              d="M0,40 C40,20 80,60 112,40 C144,20 184,60 224,40 L224,80 L0,80 Z"
+              fill="rgba(42,82,152,0.32)"
+              animate={{ d: [
+                'M0,40 C40,20 80,60 112,40 C144,20 184,60 224,40 L224,80 L0,80 Z',
+                'M0,48 C40,28 80,68 112,48 C144,28 184,68 224,48 L224,80 L0,80 Z',
+                'M0,40 C40,20 80,60 112,40 C144,20 184,60 224,40 L224,80 L0,80 Z',
+              ]}}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.path
+              d="M0,52 C40,36 80,68 112,52 C144,36 184,68 224,52 L224,80 L0,80 Z"
+              fill="rgba(27,58,107,0.45)"
+              animate={{ d: [
+                'M0,52 C40,36 80,68 112,52 C144,36 184,68 224,52 L224,80 L0,80 Z',
+                'M0,44 C40,60 80,28 112,44 C144,60 184,28 224,44 L224,80 L0,80 Z',
+                'M0,52 C40,36 80,68 112,52 C144,36 184,68 224,52 L224,80 L0,80 Z',
+              ]}}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+            />
+          </svg>
+        </div>
       </motion.div>
 
       {/* ── Floating bubbles ── */}
