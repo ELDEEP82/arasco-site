@@ -50,14 +50,14 @@ function ProductSlider({ products, isRTL }) {
             <div className={isRTL ? 'text-right' : 'text-left'}>
               {/* Product Image */}
               {products[current].image && (
-                <div className="relative w-full h-[340px] sm:h-[420px] md:h-[380px] lg:h-[400px] mb-6 rounded-2xl bg-gradient-to-b from-gray-50 to-gray-100/80 flex items-center justify-center overflow-hidden group/img">
+                <div className="relative w-full h-[360px] sm:h-[450px] md:h-[400px] lg:h-[420px] mb-6 rounded-2xl bg-gradient-to-b from-gray-50 to-gray-100/80 flex items-center justify-center p-3 overflow-hidden group/img">
                   {/* Decorative ambient glow behind the product */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-white rounded-full blur-3xl opacity-80 group-hover/img:opacity-100 transition-all duration-700" />
                   
                   <motion.img 
-                    initial={{ scale: 1.2 }}
-                    animate={{ scale: 1.2 }}
-                    whileHover={{ scale: 1.4, rotate: -4 }}
+                    initial={{ scale: 1 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{ scale: 1.08, rotate: -2 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
                     src={products[current].image} 
                     alt={products[current].name} 
