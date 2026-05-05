@@ -33,7 +33,7 @@ export default function Brands() {
 
         {/* Brands Grid */}
         <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
-          {p.categories.map((cat, i) => (
+          {p.categories.filter(cat => cat.id !== 'gazelle-rose').map((cat, i) => (
             <motion.div
               key={cat.id}
               initial={{ opacity: 0, scale: 0.8 }}
