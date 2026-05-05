@@ -240,15 +240,7 @@
 }
 
 .heading-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 4px;
-  background: linear-gradient(90deg, #E31E24, #1A73E8);
-  border-radius: 2px;
+  display: none;
 }
 
 /* ===== TIMELINE ===== */

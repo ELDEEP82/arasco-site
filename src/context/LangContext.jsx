@@ -193,9 +193,9 @@ export const translations = {
 
     // CTA
     cta: {
-      badge: '🤝 وصّلك مستعد تكبّر أعمالك؟',
-      title: 'مستعد تكبّر أعمالك؟',
-      subtitle: 'سواء كنت تاجر جملة، صاحب متجر، موزع، أو مستورد — ARASCO شريكك الأمين في النجاح',
+      badge: '🤝 تواصل معنا الآن واحصل على عرض سعر مجاني',
+      title: 'مستعد تبدأ معنا؟',
+      subtitle: 'سواء كنت مستورد، تاجر جملة، موزع، أو صاحب متجر — ARASCO شريكك الأمين في النجاح',
       btn1: '📋 اطلب كتالوج الأسعار',
       btn2: '💬 تواصل على واتساب',
       btn3: '📞 اتصل بينا دلوقتي',
@@ -402,9 +402,9 @@ export const translations = {
     },
 
     cta: {
-      badge: '🤝 Ready to Grow Your Business?',
-      title: 'Ready to Grow Your Business?',
-      subtitle: 'Whether you\'re a wholesaler, retailer, distributor, or international importer — ARASCO is your trusted partner in success',
+      badge: '🤝 Contact us now and get a free quote',
+      title: 'Ready to start with us?',
+      subtitle: 'Whether you\'re an international importer, wholesaler, distributor, or retailer — ARASCO is your trusted partner in success',
       btn1: '📋 Request Price Catalog',
       btn2: '💬 WhatsApp Us',
       btn3: '📞 Call Us Now',

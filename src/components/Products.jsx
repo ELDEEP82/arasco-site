@@ -275,8 +275,8 @@ export default function Products() {
           </div>
           <div className="bg-white/50 backdrop-blur-sm p-5 rounded-2xl border border-brand-navy/5 text-center shadow-sm">
             <div className="text-3xl mb-3">🌍</div>
-            <h4 className="font-bold text-brand-navy mb-1">{isRTL ? 'للتجار والمستوردين' : 'For Traders & Importers'}</h4>
-            <p className="text-brand-muted text-sm">{isRTL ? 'عروض وأسعار تنافسية تلبي احتياجات الموزعين والمستوردين' : 'Competitive offers and prices meeting the needs of distributors and importers'}</p>
+            <h4 className="font-bold text-brand-navy mb-1">{isRTL ? 'للمستوردين والتجار' : 'For Importers & Traders'}</h4>
+            <p className="text-brand-muted text-sm">{isRTL ? 'عروض وأسعار تنافسية تلبي احتياجات المستوردين والموزعين' : 'Competitive offers and prices meeting the needs of importers and distributors'}</p>
           </div>
         </motion.div>
 
