@@ -20,47 +20,99 @@ function StatFeature({ label, isRTL, icon }) {
 function PremiumHeroVisual() {
 
   return (
-    <div className="relative w-[420px] h-[500px] md:w-[480px] md:h-[520px] flex items-center justify-center select-none">
+    <div className="relative w-[440px] h-[500px] flex items-center justify-center select-none">
 
-      {/* ── Ambient glow behind product ── */}
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.45, 0.2] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute w-[320px] h-[320px] rounded-full bg-[radial-gradient(circle,rgba(42,82,152,0.5)_0%,transparent_70%)] pointer-events-none"
-      />
-
-      {/* ── Slow spinning decorative ring ── */}
+      {/* ── Outer slow spinning ring ── */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-        className="absolute w-[400px] h-[400px] rounded-full border border-white/10 border-dashed pointer-events-none"
+        className="absolute w-[420px] h-[420px] rounded-full border border-white/10 border-dashed pointer-events-none"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-brand-red rounded-full shadow-[0_0_16px_#E31E24]" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-white/30 rounded-full" />
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-red/50 rounded-full" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-red/40 rounded-full" />
       </motion.div>
 
-      {/* ── Second counter-rotating ring ── */}
+      {/* ── Counter-rotating inner ring ── */}
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-        className="absolute w-[340px] h-[340px] rounded-full border border-white/5 pointer-events-none"
+        className="absolute w-[320px] h-[320px] rounded-full border border-white/5 pointer-events-none"
       />
 
-      {/* ── Floating product image ── */}
+      {/* ── Main glass orb (water/purity) ── */}
       <motion.div
-        animate={{ y: [0, -16, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative z-10 w-72 h-80 md:w-80 md:h-96 drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]"
+        animate={{ y: [0, -14, 0], scale: [1, 1.03, 1] }}
+        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+        className="relative z-20 w-56 h-56 rounded-full flex items-center justify-center"
+        style={{
+          background: 'radial-gradient(circle at 35% 28%, rgba(255,255,255,0.22) 0%, rgba(27,58,107,0.55) 45%, rgba(5,9,20,0.92) 100%)',
+          boxShadow: '0 0 70px rgba(42,82,152,0.55), 0 0 140px rgba(42,82,152,0.2), inset 0 2px 24px rgba(255,255,255,0.18)',
+          border: '1px solid rgba(255,255,255,0.18)',
+        }}
       >
-        {/* Soft glow under product */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-12 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-        <img
-          src="/foameen-offer.jpg"
-          alt="FOAMEEN Products"
-          className="w-full h-full object-contain relative z-10"
-        />
+        {/* Highlight shimmer */}
+        <div className="absolute top-5 left-7 w-20 h-12 rounded-full bg-white/25 blur-xl pointer-events-none" />
+        <div className="absolute top-4 left-6 w-10 h-6 rounded-full bg-white/40 blur-md pointer-events-none" />
+
+        {/* Logo + brand */}
+        <div className="relative z-10 text-center flex flex-col items-center gap-2">
+          <img
+            src="/arasco-logo.png"
+            alt="ARASCO"
+            className="w-20 h-20 object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.3)]"
+            onError={e => { e.target.style.display = 'none'; }}
+          />
+          <div className="w-10 h-0.5 bg-brand-red rounded-full" />
+          <span className="text-white/50 text-[9px] font-bold tracking-[0.3em] uppercase">Est. Egypt</span>
+        </div>
       </motion.div>
+
+      {/* ── Floating bubbles ── */}
+      {[
+        { size: 52, left: '4%',  top: '18%', delay: 0,   dur: 4.5 },
+        { size: 28, left: '82%', top: '12%', delay: 0.7, dur: 3.8 },
+        { size: 64, left: '78%', top: '55%', delay: 1.2, dur: 5.2 },
+        { size: 22, left: '10%', top: '62%', delay: 0.4, dur: 4.0 },
+        { size: 18, left: '44%', top: '4%',  delay: 1.8, dur: 3.5 },
+        { size: 35, left: '58%', top: '84%', delay: 0.9, dur: 4.8 },
+        { size: 16, left: '22%', top: '88%', delay: 2.1, dur: 3.2 },
+      ].map((b, i) => (
+        <motion.div
+          key={i}
+          animate={{ y: [0, -12, 0], opacity: [0.45, 0.75, 0.45] }}
+          transition={{ duration: b.dur, repeat: Infinity, delay: b.delay, ease: 'easeInOut' }}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width:  b.size,
+            height: b.size,
+            left:   b.left,
+            top:    b.top,
+            background: 'radial-gradient(circle at 32% 28%, rgba(255,255,255,0.28), rgba(42,82,152,0.18))',
+            border: '1px solid rgba(255,255,255,0.18)',
+            boxShadow: '0 4px 18px rgba(42,82,152,0.18)',
+          }}
+        />
+      ))}
+
+      {/* ── Sparkling particles ── */}
+      {[
+        { x: '18%', y: '32%', delay: 0   },
+        { x: '76%', y: '42%', delay: 0.6 },
+        { x: '28%', y: '74%', delay: 1.1 },
+        { x: '66%', y: '18%', delay: 1.7 },
+        { x: '87%', y: '78%', delay: 0.9 },
+        { x: '50%', y: '90%', delay: 2.3 },
+        { x: '8%',  y: '50%', delay: 1.4 },
+      ].map((p, i) => (
+        <motion.div
+          key={i}
+          animate={{ opacity: [0, 1, 0], scale: [0, 1.2, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
+          className="absolute w-1.5 h-1.5 bg-white rounded-full pointer-events-none"
+          style={{ left: p.x, top: p.y, boxShadow: '0 0 8px rgba(255,255,255,0.9)' }}
+        />
+      ))}
 
     </div>
   );
