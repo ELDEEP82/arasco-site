@@ -50,20 +50,22 @@ function ProductSlider({ products, isRTL }) {
             <div className={isRTL ? 'text-right' : 'text-left'}>
               {/* Product Image */}
               {products[current].image && (
-                <div className="relative w-full h-[320px] sm:h-[400px] md:h-[350px] lg:h-[380px] mb-6 rounded-2xl bg-gradient-to-b from-gray-50 to-gray-100/80 flex items-center justify-center p-2 sm:p-4 group/img overflow-hidden">
+                <div className="relative w-full h-[340px] sm:h-[420px] md:h-[380px] lg:h-[400px] mb-6 rounded-2xl bg-gradient-to-b from-gray-50 to-gray-100/80 flex items-center justify-center overflow-hidden group/img">
                   {/* Decorative ambient glow behind the product */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-white rounded-full blur-3xl opacity-70 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all duration-700" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-white rounded-full blur-3xl opacity-80 group-hover/img:opacity-100 transition-all duration-700" />
                   
                   <motion.img 
-                    whileHover={{ scale: 1.15, rotate: -3 }}
-                    transition={{ type: "spring", stiffness: 250, damping: 20 }}
+                    initial={{ scale: 1.2 }}
+                    animate={{ scale: 1.2 }}
+                    whileHover={{ scale: 1.4, rotate: -4 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
                     src={products[current].image} 
                     alt={products[current].name} 
                     className="w-full h-full object-contain mix-blend-multiply drop-shadow-2xl relative z-10"
                   />
                   
                   {/* Shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 -translate-x-full group-hover/img:translate-x-full ease-in-out z-20" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 -translate-x-full group-hover/img:translate-x-full ease-in-out z-20" />
                 </div>
               )}
 
