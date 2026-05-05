@@ -51,7 +51,7 @@ export const translations = {
       title: 'لماذا تختار ARASCO؟',
       subtitle: 'لأننا نقدم أكثر من مجرد منتج — نقدم تجربة ثقة كاملة',
       features: [
-        { icon: '💰', title: 'أسعار تنافسية', desc: 'أسعار مميزة للمستوردين والموزعين الدوليين أولاً، ثم تجار الجملة والتجزئة — جودة عالية بأفضل سعر' },
+        { icon: '💰', title: 'أسعار تنافسية', desc: 'أسعار مميزة للمستوردين والموزعين الدوليين وتجار الجملة والتجزئة — جودة عالية بأفضل سعر' },
         { icon: '🏭', title: 'تصنيع مصري', desc: 'مصنع متكامل بأحدث التقنيات على أرض مصر' },
         { icon: '🔬', title: 'بحث وتطوير', desc: 'فريق علمي متخصص يطور الفورمولا باستمرار' },
         { icon: '🚀', title: 'توصيل محلي ودولي', desc: 'توصيل سريع داخل جميع محافظات مصر، وشحن دولي لجميع عملائنا ومستوردينا' },
@@ -264,7 +264,7 @@ export const translations = {
       title: 'Why Choose ARASCO?',
       subtitle: 'Because we deliver more than just a product — we deliver complete trust',
       features: [
-        { icon: '💰', title: 'Competitive Pricing', desc: 'Special rates for international importers & distributors first — premium quality at the best price for wholesalers and retailers' },
+        { icon: '💰', title: 'Competitive Pricing', desc: 'Special rates for international importers, distributors, wholesalers and retailers — premium quality at the best price' },
         { icon: '🏭', title: 'Egyptian Manufacturing', desc: 'Fully integrated factory with latest technologies in Egypt' },
         { icon: '🔬', title: 'R&D Excellence', desc: 'Specialized scientific team continuously improving formulas' },
         { icon: '🚀', title: 'Local & Global Delivery', desc: 'Fast delivery across all Egyptian governorates, and international shipping for our global clients and importers' },

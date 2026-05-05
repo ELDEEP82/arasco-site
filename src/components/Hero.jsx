@@ -18,100 +18,49 @@ function StatFeature({ label, isRTL, icon }) {
 
 /* Premium Hero Visual */
 function PremiumHeroVisual() {
-  const stats = [
-    { num: '٣+',  label: 'علامات تجارية', en: '3+ Brands' },
-    { num: '١٨+', label: 'اختبار جودة',   en: '18+ QC Tests' },
-    { num: '6',   label: 'أيام دعم',       en: '6-Day Support' },
-  ];
 
   return (
-    <div className="relative w-[420px] h-[500px] md:w-[520px] md:h-[560px] flex items-center justify-center select-none">
+    <div className="relative w-[420px] h-[500px] md:w-[480px] md:h-[520px] flex items-center justify-center select-none">
 
-      {/* ── Ambient glow ── */}
+      {/* ── Ambient glow behind product ── */}
       <motion.div
-        animate={{ scale: [1, 1.25, 1], opacity: [0.15, 0.35, 0.15] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute w-[340px] h-[340px] rounded-full bg-[radial-gradient(circle,rgba(42,82,152,0.45)_0%,transparent_70%)] pointer-events-none"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.45, 0.2] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute w-[320px] h-[320px] rounded-full bg-[radial-gradient(circle,rgba(42,82,152,0.5)_0%,transparent_70%)] pointer-events-none"
       />
 
-      {/* ── Slow spinning ring ── */}
+      {/* ── Slow spinning decorative ring ── */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-        className="absolute w-[390px] h-[390px] rounded-full border border-white/8 border-dashed pointer-events-none"
+        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+        className="absolute w-[400px] h-[400px] rounded-full border border-white/10 border-dashed pointer-events-none"
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-brand-red rounded-full shadow-[0_0_14px_#E31E24]" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white/40 rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-brand-red rounded-full shadow-[0_0_16px_#E31E24]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-white/30 rounded-full" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-red/50 rounded-full" />
       </motion.div>
 
-      {/* ── Central logo card ── */}
+      {/* ── Second counter-rotating ring ── */}
       <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative z-20 w-52 h-52 rounded-[2.5rem] bg-gradient-to-br from-brand-navyLight to-brand-navyDark border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.6)] flex flex-col items-center justify-center gap-3 overflow-hidden"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+        className="absolute w-[340px] h-[340px] rounded-full border border-white/5 pointer-events-none"
+      />
+
+      {/* ── Floating product image ── */}
+      <motion.div
+        animate={{ y: [0, -16, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="relative z-10 w-72 h-80 md:w-80 md:h-96 drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06)_0%,transparent_60%)] pointer-events-none" />
+        {/* Soft glow under product */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-12 bg-white/10 rounded-full blur-2xl pointer-events-none" />
         <img
-          src="/arasco-logo.png"
-          alt="ARASCO"
-          className="w-24 h-24 object-contain drop-shadow-[0_0_18px_rgba(255,255,255,0.25)] relative z-10"
-          onError={e => { e.target.style.display='none'; e.target.parentElement.insertAdjacentHTML('beforeend','<div class="text-7xl">🛡️</div>'); }}
+          src="/foameen-offer.jpg"
+          alt="FOAMEEN Products"
+          className="w-full h-full object-contain relative z-10"
         />
-        <span className="text-white font-black text-lg tracking-[0.18em] relative z-10">ARASCO</span>
-        <span className="text-brand-red text-[10px] font-bold tracking-widest uppercase relative z-10">Quality · Care · Trust</span>
       </motion.div>
-
-      {/* ── Floating card: FOAMEEN ── */}
-      <motion.div
-        animate={{ y: [0, -8, 0], rotate: [-2, 2, -2] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-4 left-0 z-30 flex items-center gap-2 glass border border-white/15 rounded-2xl px-3 py-2.5 shadow-lg"
-      >
-        <img src="/foameen-logo.jpg" alt="FOAMEEN" className="w-9 h-9 rounded-xl object-contain bg-white p-0.5 flex-shrink-0" />
-        <div>
-          <p className="text-white font-black text-xs leading-none">FOAMEEN</p>
-          <p className="text-white/50 text-[10px] mt-0.5">مسحوق غسيل</p>
-        </div>
-      </motion.div>
-
-      {/* ── Floating card: Gazelle ── */}
-      <motion.div
-        animate={{ y: [0, 10, 0], rotate: [2, -2, 2] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute bottom-16 right-0 z-30 flex items-center gap-2 glass border border-white/15 rounded-2xl px-3 py-2.5 shadow-lg"
-      >
-        <img src="/gazelle-logo.jpg" alt="Gazelle" className="w-9 h-9 rounded-xl object-contain bg-white p-0.5 flex-shrink-0" />
-        <div>
-          <p className="text-white font-black text-xs leading-none">Gazelle</p>
-          <p className="text-white/50 text-[10px] mt-0.5">عناية وتجميل</p>
-        </div>
-      </motion.div>
-
-      {/* ── Floating badge: ISO ── */}
-      <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-        className="absolute top-8 right-4 z-30 glass border border-white/15 rounded-2xl px-3 py-2 text-center shadow-lg"
-      >
-        <p className="text-brand-red font-black text-sm leading-none">ISO</p>
-        <p className="text-white/60 text-[10px] mt-0.5">9001:2015</p>
-      </motion.div>
-
-      {/* ── Stats row ── */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-        {stats.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 + i * 0.15 }}
-            className="glass border border-white/15 rounded-2xl px-3 py-2 text-center shadow-md"
-          >
-            <p className="text-white font-black text-base leading-none">{s.num}</p>
-            <p className="text-white/55 text-[10px] mt-0.5 whitespace-nowrap">{s.label}</p>
-          </motion.div>
-        ))}
-      </div>
 
     </div>
   );
