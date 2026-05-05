@@ -32,7 +32,7 @@ export default function Brands() {
         </motion.div>
 
         {/* Brands Grid */}
-        <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center items-stretch gap-8 max-w-5xl mx-auto">
           {p.categories.filter(cat => cat.id !== 'gazelle-rose').map((cat, i) => (
             <motion.div
               key={cat.id}
@@ -41,7 +41,7 @@ export default function Brands() {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className="flex flex-col items-center gap-4 bg-white p-8 rounded-3xl shadow-card hover:shadow-hover border border-gray-100 transition-all duration-300 w-64"
+              className="flex flex-col items-center justify-between gap-4 bg-white p-8 rounded-3xl shadow-card hover:shadow-hover border border-gray-100 transition-all duration-300 w-64"
             >
               <div className="w-32 h-32 flex items-center justify-center p-2">
                 {cat.logo ? (

@@ -18,78 +18,101 @@ function StatFeature({ label, isRTL, icon }) {
 
 /* Premium Hero Visual */
 function PremiumHeroVisual() {
+  const stats = [
+    { num: '٣+',  label: 'علامات تجارية', en: '3+ Brands' },
+    { num: '١٨+', label: 'اختبار جودة',   en: '18+ QC Tests' },
+    { num: '6',   label: 'أيام دعم',       en: '6-Day Support' },
+  ];
+
   return (
-    <div className="relative w-80 h-96 md:w-[500px] md:h-[500px] flex items-center justify-center">
-      {/* Dynamic Background Glow */}
+    <div className="relative w-[420px] h-[500px] md:w-[520px] md:h-[560px] flex items-center justify-center select-none">
+
+      {/* ── Ambient glow ── */}
       <motion.div
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute w-full h-full bg-[radial-gradient(circle,rgba(44,82,130,0.3)_0%,transparent_70%)] pointer-events-none"
+        animate={{ scale: [1, 1.25, 1], opacity: [0.15, 0.35, 0.15] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute w-[340px] h-[340px] rounded-full bg-[radial-gradient(circle,rgba(42,82,152,0.45)_0%,transparent_70%)] pointer-events-none"
       />
 
-      {/* Rotating Outer Ring */}
+      {/* ── Slow spinning ring ── */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute w-[350px] h-[350px] md:w-[420px] md:h-[420px] border border-white/5 rounded-full"
+        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+        className="absolute w-[390px] h-[390px] rounded-full border border-white/8 border-dashed pointer-events-none"
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-brand-red rounded-full shadow-[0_0_15px_#E31E24]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-brand-red rounded-full shadow-[0_0_14px_#E31E24]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white/40 rounded-full" />
       </motion.div>
 
-      {/* Second Counter-Rotating Ring */}
+      {/* ── Central logo card ── */}
       <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-        className="absolute w-[300px] h-[300px] md:w-[360px] md:h-[360px] border border-white/10 border-dashed rounded-full"
-      />
-
-      {/* Main Glass Shield */}
-      <motion.div
-        animate={{ 
-          y: [0, -10, 0],
-        }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-10 w-72 h-[420px] md:w-80 md:h-[480px] rounded-[3.5rem] p-[2px] bg-gradient-to-b from-brand-navyLight to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group"
+        animate={{ y: [0, -12, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        className="relative z-20 w-52 h-52 rounded-[2.5rem] bg-gradient-to-br from-brand-navyLight to-brand-navyDark border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.6)] flex flex-col items-center justify-center gap-3 overflow-hidden"
       >
-        {/* Inner Content Container */}
-        <div className="w-full h-full rounded-[3.4rem] bg-brand-navyDark/90 backdrop-blur-3xl flex flex-col items-center justify-center p-10 relative overflow-hidden border border-white/5">
-          
-          {/* Subtle Accent Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-20 bg-brand-navyLight/30 rounded-full blur-[40px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06)_0%,transparent_60%)] pointer-events-none" />
+        <img
+          src="/arasco-logo.png"
+          alt="ARASCO"
+          className="w-24 h-24 object-contain drop-shadow-[0_0_18px_rgba(255,255,255,0.25)] relative z-10"
+          onError={e => { e.target.style.display='none'; e.target.parentElement.insertAdjacentHTML('beforeend','<div class="text-7xl">🛡️</div>'); }}
+        />
+        <span className="text-white font-black text-lg tracking-[0.18em] relative z-10">ARASCO</span>
+        <span className="text-brand-red text-[10px] font-bold tracking-widest uppercase relative z-10">Quality · Care · Trust</span>
+      </motion.div>
 
-
-
-          {/* Logo Showcase */}
-          <div className="w-36 h-36 md:w-44 md:h-44 mb-10 relative">
-             <div className="absolute inset-0 bg-white/5 rounded-full blur-xl" />
-             <img 
-               src="/arasco-logo.png" 
-               alt="ARASCO" 
-               className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]" 
-               onError={(e) => {
-                 e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-8xl drop-shadow-lg opacity-80">🛡️</div>`;
-               }}
-             />
-          </div>
-
-          {/* Text Labels */}
-          <motion.div className="relative z-10 text-center">
-            <h3 className="text-4xl font-black text-white mb-2 tracking-[0.2em] uppercase drop-shadow-md">ARASCO</h3>
-            <motion.div 
-              initial={{ width: 0 }}
-              whileInView={{ width: '3rem' }}
-              className="h-1 bg-brand-red rounded-full mx-auto mb-6"
-            />
-            <p className="text-white/70 text-center text-xs md:text-sm font-bold leading-relaxed tracking-wider uppercase">
-              Global Standards <br/>
-              <span className="text-brand-red">Excellence & Trust</span>
-            </p>
-          </motion.div>
+      {/* ── Floating card: FOAMEEN ── */}
+      <motion.div
+        animate={{ y: [0, -8, 0], rotate: [-2, 2, -2] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-4 left-0 z-30 flex items-center gap-2 glass border border-white/15 rounded-2xl px-3 py-2.5 shadow-lg"
+      >
+        <img src="/foameen-logo.jpg" alt="FOAMEEN" className="w-9 h-9 rounded-xl object-contain bg-white p-0.5 flex-shrink-0" />
+        <div>
+          <p className="text-white font-black text-xs leading-none">FOAMEEN</p>
+          <p className="text-white/50 text-[10px] mt-0.5">مسحوق غسيل</p>
         </div>
       </motion.div>
+
+      {/* ── Floating card: Gazelle ── */}
+      <motion.div
+        animate={{ y: [0, 10, 0], rotate: [2, -2, 2] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        className="absolute bottom-16 right-0 z-30 flex items-center gap-2 glass border border-white/15 rounded-2xl px-3 py-2.5 shadow-lg"
+      >
+        <img src="/gazelle-logo.jpg" alt="Gazelle" className="w-9 h-9 rounded-xl object-contain bg-white p-0.5 flex-shrink-0" />
+        <div>
+          <p className="text-white font-black text-xs leading-none">Gazelle</p>
+          <p className="text-white/50 text-[10px] mt-0.5">عناية وتجميل</p>
+        </div>
+      </motion.div>
+
+      {/* ── Floating badge: ISO ── */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        className="absolute top-8 right-4 z-30 glass border border-white/15 rounded-2xl px-3 py-2 text-center shadow-lg"
+      >
+        <p className="text-brand-red font-black text-sm leading-none">ISO</p>
+        <p className="text-white/60 text-[10px] mt-0.5">9001:2015</p>
+      </motion.div>
+
+      {/* ── Stats row ── */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+        {stats.map((s, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 + i * 0.15 }}
+            className="glass border border-white/15 rounded-2xl px-3 py-2 text-center shadow-md"
+          >
+            <p className="text-white font-black text-base leading-none">{s.num}</p>
+            <p className="text-white/55 text-[10px] mt-0.5 whitespace-nowrap">{s.label}</p>
+          </motion.div>
+        ))}
+      </div>
+
     </div>
   );
 }
