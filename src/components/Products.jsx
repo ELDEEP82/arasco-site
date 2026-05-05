@@ -45,18 +45,16 @@ function ProductSlider({ products, isRTL }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: isRTL ? 50 : -50 }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className="bg-white rounded-2xl p-6 min-h-[160px] flex flex-col justify-between shadow-card border border-gray-100"
+            className="bg-white rounded-2xl overflow-hidden min-h-[160px] flex flex-col justify-between shadow-card border border-gray-100 group/card"
           >
             <div className={isRTL ? 'text-right' : 'text-left'}>
               {/* Product Image */}
               {products[current].image && (
-                <div className="relative w-full h-[360px] sm:h-[450px] md:h-[400px] lg:h-[420px] mb-6 rounded-2xl bg-gradient-to-b from-gray-50 to-gray-100/80 flex items-center justify-center p-3 overflow-hidden group/img">
+                <div className="relative w-full aspect-square md:aspect-[4/5] bg-gradient-to-b from-gray-50 to-gray-100/80 flex items-center justify-center overflow-hidden group/img">
                   {/* Decorative ambient glow behind the product */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-white rounded-full blur-3xl opacity-80 group-hover/img:opacity-100 transition-all duration-700" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-white rounded-full blur-3xl opacity-80 group-hover/img:opacity-100 transition-all duration-700 pointer-events-none" />
                   
                   <motion.img 
-                    initial={{ scale: 1 }}
-                    animate={{ scale: 1 }}
                     whileHover={{ scale: 1.08, rotate: -2 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
                     src={products[current].image} 
@@ -65,11 +63,13 @@ function ProductSlider({ products, isRTL }) {
                   />
                   
                   {/* Shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 -translate-x-full group-hover/img:translate-x-full ease-in-out z-20" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 -translate-x-full group-hover/img:translate-x-full ease-in-out z-20 pointer-events-none" />
                 </div>
               )}
 
-              <div className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''} mb-3`}>
+              {/* Text Content */}
+              <div className="p-5 sm:p-6 pb-2">
+                <div className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''} mb-3`}>
                 <h4 className="font-black text-brand-text text-base flex-1 leading-tight">
                   {products[current].name}
                 </h4>
@@ -82,10 +82,11 @@ function ProductSlider({ products, isRTL }) {
               <p className="text-brand-muted text-sm leading-relaxed line-clamp-3">
                 {products[current].desc}
               </p>
+              </div>
             </div>
 
             {/* Counter */}
-            <div className={`flex items-center ${isRTL ? 'justify-end' : 'justify-start'} gap-2 mt-4`}>
+            <div className={`flex items-center ${isRTL ? 'justify-end' : 'justify-start'} gap-2 px-5 sm:px-6 pb-6 pt-2`}>
               {products.map((_, i) => (
                 <button
                   key={i}
