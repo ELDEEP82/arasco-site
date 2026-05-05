@@ -80,14 +80,14 @@ function ParticleCanvas() {
 }
 
 /* Floating Blob */
-function FloatingBlob({ className, color, size = 400, delay = 0 }) {
+function FloatingBlob({ className, color, size = 400, delay = 0, opacity = 0.1 }) {
   return (
     <motion.div
       className={`absolute ${className} blob pointer-events-none`}
       style={{
         width: size, height: size,
         background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        opacity: 0.15,
+        opacity: opacity,
       }}
       animate={{
         x: [0, 30, -20, 0],
@@ -156,17 +156,17 @@ function PremiumHeroVisual() {
         className="relative z-10 w-72 h-[420px] md:w-80 md:h-[480px] rounded-[3.5rem] p-[2px] bg-gradient-to-br from-white/20 via-transparent to-white/5 shadow-2xl overflow-hidden group"
       >
         {/* Inner Content Container */}
-        <div className="w-full h-full rounded-[3.4rem] bg-[#0A192F]/40 backdrop-blur-2xl flex flex-col items-center justify-center p-10 relative overflow-hidden border border-white/10">
+        <div className="w-full h-full rounded-[3.4rem] bg-[#020617]/60 backdrop-blur-3xl flex flex-col items-center justify-center p-10 relative overflow-hidden border border-white/5">
           
           {/* Scanning Shimmer Effect */}
           <motion.div
             animate={{ y: ['-100%', '200%'] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
             className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-transparent via-white/5 to-transparent -skew-y-12"
           />
 
           {/* Glowing Center Orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-navyLight/20 rounded-full blur-[60px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-navyLight/10 rounded-full blur-[80px] pointer-events-none" />
 
           {/* Logo Showcase */}
           <div className="w-36 h-36 md:w-44 md:h-44 mb-10 relative">
@@ -241,13 +241,13 @@ export default function Hero() {
       {/* Particle Canvas */}
       <ParticleCanvas />
 
-      {/* Floating Blobs */}
-      <FloatingBlob className="-top-20 -left-20" color="#E31E24" size={500} delay={0} />
-      <FloatingBlob className="top-1/2 -right-32" color="#2A5298" size={600} delay={3} />
-      <FloatingBlob className="-bottom-32 left-1/3" color="#E31E24" size={400} delay={6} />
+      {/* Floating Blobs (Toned Down) */}
+      <FloatingBlob className="-top-20 -left-20" color="#E31E24" size={500} opacity={0.03} delay={0} />
+      <FloatingBlob className="top-1/2 -right-32" color="#0B1120" size={600} opacity={0.05} delay={3} />
+      <FloatingBlob className="-bottom-32 left-1/3" color="#E31E24" size={400} opacity={0.03} delay={6} />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-navyDark/50 pointer-events-none" />
+      {/* Gradient overlay (Subtle) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-navyDark/80 pointer-events-none" />
 
       <div className="container-custom relative z-10 pt-28 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
