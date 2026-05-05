@@ -117,74 +117,104 @@ function StatFeature({ label, isRTL, icon }) {
 /* Premium Hero Visual */
 function PremiumHeroVisual() {
   return (
-    <div className="relative w-80 h-96 md:w-[450px] md:h-[500px] flex items-center justify-center">
-      {/* Animated glow background */}
+    <div className="relative w-80 h-96 md:w-[500px] md:h-[500px] flex items-center justify-center">
+      {/* Dynamic Background Glow */}
       <motion.div
         animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-          rotate: [0, 90, 180, 270, 360]
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(44,82,130,0.2)_0%,transparent_70%)] pointer-events-none"
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute w-full h-full bg-[radial-gradient(circle,rgba(44,82,130,0.3)_0%,transparent_70%)] pointer-events-none"
       />
 
-      {/* Main Glass Card */}
+      {/* Rotating Outer Ring */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[350px] h-[350px] md:w-[420px] md:h-[420px] border border-white/5 rounded-full"
+      >
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-brand-red rounded-full shadow-[0_0_15px_#E31E24]" />
+      </motion.div>
+
+      {/* Second Counter-Rotating Ring */}
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[300px] h-[300px] md:w-[360px] md:h-[360px] border border-white/10 border-dashed rounded-full"
+      />
+
+      {/* Main Glass Shield */}
       <motion.div
         animate={{ 
-          y: [0, -20, 0],
-          rotateX: [5, -5, 5],
-          rotateY: [-5, 5, -5]
+          y: [0, -15, 0],
+          rotateY: [-8, 8, -8],
+          rotateX: [5, -5, 5]
         }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
-        className="relative z-10 w-72 h-96 md:w-80 md:h-[450px] rounded-[3rem] p-1 border-2 border-white/20 shadow-2xl overflow-hidden"
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ transformStyle: 'preserve-3d', perspective: '1200px' }}
+        className="relative z-10 w-72 h-[420px] md:w-80 md:h-[480px] rounded-[3.5rem] p-[2px] bg-gradient-to-br from-white/20 via-transparent to-white/5 shadow-2xl overflow-hidden group"
       >
-        {/* Glass content */}
-        <div className="w-full h-full rounded-[2.8rem] bg-white/5 backdrop-blur-xl flex flex-col items-center justify-center p-8 relative overflow-hidden">
-          {/* Shimmer effect */}
+        {/* Inner Content Container */}
+        <div className="w-full h-full rounded-[3.4rem] bg-[#0A192F]/40 backdrop-blur-2xl flex flex-col items-center justify-center p-10 relative overflow-hidden border border-white/10">
+          
+          {/* Scanning Shimmer Effect */}
           <motion.div
-            animate={{ x: ['-200%', '200%'] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+            animate={{ y: ['-100%', '200%'] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-transparent via-white/5 to-transparent -skew-y-12"
           />
 
-          {/* Logo/Icon */}
-          <div className="w-32 h-32 md:w-40 md:h-40 mb-8 relative">
-             <div className="absolute inset-0 bg-brand-navyLight/20 rounded-full blur-2xl animate-pulse"></div>
+          {/* Glowing Center Orb */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-brand-navyLight/20 rounded-full blur-[60px] pointer-events-none" />
+
+          {/* Logo Showcase */}
+          <div className="w-36 h-36 md:w-44 md:h-44 mb-10 relative">
+             <motion.div 
+               animate={{ scale: [1, 1.1, 1] }}
+               transition={{ duration: 4, repeat: Infinity }}
+               className="absolute inset-0 bg-white/5 rounded-full blur-xl"
+             />
              <img 
                src="/arasco-logo.png" 
                alt="ARASCO" 
-               className="w-full h-full object-contain relative z-10 drop-shadow-2xl" 
+               className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]" 
                onError={(e) => {
-                 e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-8xl">✨</div>`;
+                 e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-8xl drop-shadow-lg">🛡️</div>`;
                }}
              />
           </div>
 
-          {/* Brand Info */}
-          <h3 className="text-3xl font-black text-white mb-2 tracking-widest uppercase">ARASCO</h3>
-          <div className="w-12 h-1 bg-brand-red rounded-full mb-4"></div>
-          <p className="text-white/60 text-center text-sm font-medium leading-relaxed">
-            Leading Global <br/> Cleaning & Care Solutions
-          </p>
+          {/* Text Labels */}
+          <motion.div className="relative z-10 text-center">
+            <h3 className="text-4xl font-black text-white mb-2 tracking-[0.2em] uppercase drop-shadow-md">ARASCO</h3>
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: '3rem' }}
+              className="h-1 bg-brand-red rounded-full mx-auto mb-6"
+            />
+            <p className="text-white/70 text-center text-xs md:text-sm font-bold leading-relaxed tracking-wider uppercase">
+              Global Standards <br/>
+              <span className="text-brand-red">Excellence & Trust</span>
+            </p>
+          </motion.div>
         </div>
       </motion.div>
 
-      {/* Floating elements */}
-      {[...Array(3)].map((_, i) => (
+      {/* Floating Micro-Orbs */}
+      {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
           animate={{ 
-            y: [0, i % 2 === 0 ? -40 : 40, 0],
-            x: [0, i % 2 === 0 ? 20 : -20, 0],
-            rotate: [0, 360]
+            y: [0, (i % 2 === 0 ? -60 : 60), 0],
+            x: [0, (i % 3 === 0 ? 30 : -30), 0],
+            opacity: [0.2, 0.5, 0.2]
           }}
-          transition={{ duration: 8 + i * 2, repeat: Infinity, ease: "easeInOut" }}
-          className={`absolute w-${12 + i * 4} h-${12 + i * 4} glass border border-white/20 rounded-2xl opacity-40`}
+          transition={{ duration: 6 + i * 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute w-2 h-2 bg-white rounded-full blur-[2px]"
           style={{ 
-            top: `${20 + i * 25}%`, 
-            left: i % 2 === 0 ? '-10%' : '85%',
+            top: `${10 + i * 20}%`, 
+            left: `${(i * 25) % 100}%`,
           }}
         />
       ))}

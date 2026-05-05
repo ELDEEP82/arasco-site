@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy:    '#1B365D',
-          navyDark:'#0D1B2A',
-          navyLight:'#2C5282',
+          navy:    '#0A192F',
+          navyDark:'#050B16',
+          navyLight:'#112240',
           red:     '#E31E24',
           redDark: '#B71C1C',
           redLight:'#FF4444',
@@ -39,7 +39,7 @@ export default {
         inter:   ['Inter', 'sans-serif'],
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(135deg, #0D1B2A 0%, #1B365D 40%, #2C5282 70%, #1B365D 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #050B16 0%, #0A192F 40%, #112240 70%, #0A192F 100%)',
         'green-gradient': 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
         'card-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
       },
@@ -68,10 +68,10 @@ export default {
         },
       },
       boxShadow: {
-        'glass': '0 8px 32px 0 rgba(27, 54, 93, 0.15)',
-        'card':  '0 20px 60px rgba(0,0,0,0.08)',
-        'hover': '0 30px 80px rgba(0,0,0,0.15)',
-        'navy':  '0 10px 40px rgba(27, 54, 93, 0.3)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+        'card':  '0 20px 60px rgba(0,0,0,0.15)',
+        'hover': '0 30px 80px rgba(0,0,0,0.25)',
+        'navy':  '0 10px 40px rgba(10, 25, 47, 0.4)',
         'red':   '0 10px 40px rgba(227, 30, 36, 0.3)',
       },
     },
