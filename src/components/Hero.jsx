@@ -114,67 +114,71 @@ function StatFeature({ label, isRTL, icon }) {
   );
 }
 
-/* Interactive 3D Card */
-function InteractiveCard() {
-  const cardRef = useRef(null);
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    // Calculate rotation (-15 to 15 degrees)
-    const rotX = ((y - centerY) / centerY) * -15;
-    const rotY = ((x - centerX) / centerX) * 15;
-    
-    setRotateX(rotX);
-    setRotateY(rotY);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
-
+/* Captivating Bubbles Animation */
+function AnimatedBubbles() {
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ rotateX, rotateY }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      style={{ perspective: 1000 }}
-      className="relative z-10 w-72 h-80 md:w-96 md:h-[400px] cursor-pointer"
-    >
-      <div 
-        className="w-full h-full rounded-[2.5rem] p-8 border-4 border-white/20 shadow-2xl flex flex-col items-center justify-center gap-6 overflow-hidden relative"
+    <div className="relative w-72 h-80 md:w-96 md:h-[400px] flex items-center justify-center pointer-events-none">
+      {/* Main Big Bubble */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute z-20 w-64 h-64 md:w-80 md:h-80 rounded-full flex items-center justify-center"
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
-          backdropFilter: 'blur(10px)',
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+          background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), rgba(255,255,255,0.1) 40%, rgba(26,115,232,0.4) 80%, rgba(255,255,255,0.6) 100%)',
+          boxShadow: 'inset -10px -20px 40px rgba(26,115,232,0.5), inset 10px 20px 40px rgba(255,255,255,0.8), 0 20px 50px rgba(0,0,0,0.1)',
+          backdropFilter: 'blur(5px)',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-red/20 to-brand-navy/20 mix-blend-overlay"></div>
+        {/* Inner Logo or text inside the bubble (optional, but requested to remove logo so just abstract) */}
         <motion.div 
-          animate={{ scale: [1, 1.05, 1], rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          className="text-7xl drop-shadow-2xl z-10"
+          animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="text-7xl drop-shadow-2xl opacity-80"
         >
           ✨
         </motion.div>
-        <h3 className="text-3xl font-black text-white text-center z-10 drop-shadow-md tracking-wider">
-          ARASCO
-        </h3>
-        <p className="text-white/80 text-center font-medium z-10">
-          Premium Quality <br/> Since Day One
-        </p>
-      </div>
-    </motion.div>
+        {/* Shine highlight */}
+        <div className="absolute top-8 left-10 w-20 h-10 bg-white/60 rounded-full blur-md transform -rotate-45" />
+      </motion.div>
+
+      {/* Small floating bubble 1 */}
+      <motion.div
+        animate={{
+          y: [0, -40, 0],
+          x: [0, 20, 0],
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        className="absolute z-30 top-10 right-4 w-16 h-16 rounded-full"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.1) 60%, rgba(66,133,244,0.4) 100%)',
+          boxShadow: 'inset -5px -10px 20px rgba(66,133,244,0.5), inset 5px 10px 20px rgba(255,255,255,0.8)',
+        }}
+      >
+        <div className="absolute top-2 left-3 w-5 h-2 bg-white/70 rounded-full blur-sm transform -rotate-45" />
+      </motion.div>
+
+      {/* Small floating bubble 2 */}
+      <motion.div
+        animate={{
+          y: [0, -30, 0],
+          x: [0, -20, 0],
+        }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        className="absolute z-10 bottom-12 left-0 w-24 h-24 rounded-full"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), rgba(255,255,255,0.1) 60%, rgba(227,30,36,0.3) 100%)',
+          boxShadow: 'inset -5px -10px 20px rgba(227,30,36,0.4), inset 5px 10px 20px rgba(255,255,255,0.8)',
+        }}
+      >
+        <div className="absolute top-3 left-4 w-6 h-3 bg-white/70 rounded-full blur-sm transform -rotate-45" />
+      </motion.div>
+
+      {/* Glow Behind */}
+      <div className="absolute z-0 w-72 h-72 bg-brand-navyLight/40 rounded-full blur-[80px]" />
+    </div>
   );
 }
 
@@ -276,7 +280,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
             className="relative hidden lg:flex items-center justify-center perspective-1000"
           >
-            <InteractiveCard />
+            <AnimatedBubbles />
           </motion.div>
         </div>
       </div>

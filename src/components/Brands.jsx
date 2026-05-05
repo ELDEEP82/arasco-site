@@ -56,7 +56,7 @@ export default function Brands() {
                   href={cat.brandLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-red text-sm font-bold hover:underline"
+                  className="mt-2 inline-flex items-center justify-center px-6 py-2 rounded-full bg-brand-navy/5 text-brand-navy font-bold text-sm hover:bg-brand-navy hover:text-white transition-all duration-300 shadow-sm"
                 >
                   {isRTL ? 'زيارة صفحة البراند' : 'Visit Brand Page'}
                 </a>

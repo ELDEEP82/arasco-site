@@ -29,8 +29,8 @@ export const translations = {
       cta2: 'استكشف المنتجات',
       stat1: 'خبرة طويلة',
       stat2: 'منتج متميز',
-      stat3: 'عميل راضٍ',
-      stat4: 'محافظة',
+      stat3: 'ثقة الملايين',
+      stat4: 'انتشار عالمي',
     },
 
     // ABOUT
@@ -244,8 +244,8 @@ export const translations = {
       cta2: 'Explore Products',
       stat1: 'Long Experience',
       stat2: 'Premium Products',
-      stat3: 'Happy Clients',
-      stat4: 'Governorates',
+      stat3: 'Trusted by Millions',
+      stat4: 'Global Reach',
     },
 
     about: {
