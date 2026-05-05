@@ -110,24 +110,24 @@ export default function About() {
               </div>
 
               <div className="relative z-10">
-                <div className="text-6xl mb-6">🏭</div>
+                <div className="text-6xl mb-6">🏆</div>
                 <h3 className="text-2xl font-black mb-4">
-                  {isRTL ? 'مصنعنا المتطور' : 'Our Advanced Factory'}
+                  {isRTL ? 'جودة لا تضاهى' : 'Unmatched Quality'}
                 </h3>
                 <p className="text-white/80 leading-relaxed mb-8">
                   {isRTL
-                    ? 'مساحة ١٠٠٠٠ متر مربع، تضم أحدث خطوط الإنتاج والمختبرات المتخصصة'
-                    : '10,000 sqm facility with state-of-the-art production lines and specialized laboratories'
+                    ? 'منظومة إنتاج متكاملة تضم أحدث خطوط الإنتاج والمختبرات المتخصصة لضمان أعلى مستويات الجودة'
+                    : 'An integrated production system with state-of-the-art lines and specialized laboratories ensuring the highest quality'
                   }
                 </p>
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { num: '10,000', label: isRTL ? 'متر مربع' : 'Square Meters', icon: '📐' },
-                    { num: '200+', label: isRTL ? 'عامل محترف' : 'Professional Workers', icon: '👷' },
-                    { num: '18+', label: isRTL ? 'اختبار جودة' : 'Quality Tests', icon: '🔬' },
-                    { num: '24/7', label: isRTL ? 'رقابة مستمرة' : 'Continuous Control', icon: '⚙️' },
+                    { title: isRTL ? 'مساحات تشغيلية' : 'Spacious', label: isRTL ? 'واسعة ومجهزة' : 'Operations', icon: '📐' },
+                    { title: isRTL ? 'كوادر محترفة' : 'Professional', label: isRTL ? 'وخبراء صناعة' : 'Team', icon: '👷' },
+                    { title: isRTL ? 'أقوى الاختبارات' : 'Rigorous', label: isRTL ? 'لضمان الجودة' : 'Tests', icon: '🔬' },
+                    { title: isRTL ? 'رقابة مستمرة' : 'Continuous', label: isRTL ? 'على مدار الساعة' : 'Control', icon: '⚙️' },
                   ].map((s, i) => (
                     <motion.div
                       key={i}
@@ -135,7 +135,7 @@ export default function About() {
                       className="glass border border-white/20 rounded-2xl p-4 text-center"
                     >
                       <div className="text-2xl mb-1">{s.icon}</div>
-                      <div className="text-xl font-black text-white">{s.num}</div>
+                      <div className="text-sm md:text-base font-black text-white">{s.title}</div>
                       <div className="text-white/70 text-xs">{s.label}</div>
                     </motion.div>
                   ))}
@@ -149,8 +149,8 @@ export default function About() {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <div className="text-sm opacity-80">{isRTL ? 'خبرة أكثر من' : 'Over'}</div>
-              <div className="text-2xl font-black">10 {isRTL ? 'سنوات' : 'Years'}</div>
+              <div className="text-sm opacity-80">{isRTL ? 'خبرة' : 'Long'}</div>
+              <div className="text-xl font-black">{isRTL ? 'طويلة' : 'Experience'}</div>
             </motion.div>
           </motion.div>
         </div>

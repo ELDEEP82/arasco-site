@@ -20,14 +20,14 @@ export const translations = {
 
     // HERO
     hero: {
-      badge: '🏆 جودة مصرية عالمية المستوى',
+      badge: '🏆 جودة عالمية المستوى',
       title1: 'نظافة',
       title2: 'بلا حدود',
-      title3: 'صُنعت في مصر',
-      subtitle: 'ARASCO — حيث تلتقي الجودة المصرية الأصيلة بأرقى معايير التصنيع العالمية. منظفات وعناية شخصية ومستحضرات تجميل تثق بها ملايين الأسر.',
+      title3: '',
+      subtitle: 'ARASCO — حيث تلتقي الجودة الأصيلة بأرقى معايير التصنيع العالمية. منظفات وعناية شخصية ومستحضرات تجميل تثق بها الملايين.',
       cta1: '📋 اطلب أسعار الجملة',
       cta2: 'استكشف المنتجات',
-      stat1: 'سنة خبرة',
+      stat1: 'خبرة طويلة',
       stat2: 'منتج متميز',
       stat3: 'عميل راضٍ',
       stat4: 'محافظة',
@@ -36,11 +36,11 @@ export const translations = {
     // ABOUT
     about: {
       badge: 'قصتنا',
-      title: 'من قلب مصر إلى كل بيت',
-      p1: 'ARASCO ليست مجرد شركة — هي قصة نجاح مصرية حقيقية. بدأنا بحلم بسيط: توفير منتجات نظافة وعناية عالية الجودة بأسعار تناسب كل أسرة مصرية.',
-      p2: 'اليوم، نفخر بامتلاك خطوط إنتاج متطورة تعمل وفق أحدث المعايير الدولية، فريق من الكيميائيين والمهندسين المتخصصين، وشبكة توزيع تغطي جميع أنحاء الجمهورية.',
-      p3: 'كل قطرة من منتجاتنا تحمل معها التزامنا بالجودة والشفافية والابتكار المستمر لخدمة الأسرة المصرية.',
-      card1: { title: 'تصنيع محلي ١٠٠٪', desc: 'كل منتج يُصنع بأيادٍ مصرية على أرض مصر' },
+      title: 'من قلب مصر إلى كل العالم',
+      p1: 'ARASCO ليست مجرد شركة — هي قصة نجاح ملهمة. بدأنا بحلم بسيط: توفير منتجات نظافة وعناية عالية الجودة بأسعار تناسب الجميع.',
+      p2: 'اليوم، نفخر بامتلاك خطوط إنتاج متطورة تعمل وفق أحدث المعايير الدولية، فريق من الكيميائيين والمهندسين المتخصصين، وشبكة توزيع تغطي كافة الأنحاء.',
+      p3: 'كل قطرة من منتجاتنا تحمل معها التزامنا بالجودة والشفافية والابتكار المستمر لخدمة الجميع.',
+      card1: { title: 'تصنيع عالي الجودة', desc: 'كل منتج يُصنع بأيادٍ محترفة وبأعلى معايير الدقة' },
       card2: { title: 'مواد خام فائقة الجودة', desc: 'نختار أجود المواد الخام المستوردة والمحلية' },
       card3: { title: 'رقابة جودة صارمة', desc: 'كل دفعة إنتاج تخضع لـ ١٨+ اختبار جودة' },
     },
@@ -54,7 +54,7 @@ export const translations = {
         { icon: '💰', title: 'أسعار تنافسية', desc: 'أفضل جودة بأسعار تناسب تجار الجملة والتجزئة' },
         { icon: '🏭', title: 'تصنيع مصري', desc: 'مصنع متكامل بأحدث التقنيات على أرض مصر' },
         { icon: '🔬', title: 'بحث وتطوير', desc: 'فريق علمي متخصص يطور الفورمولا باستمرار' },
-        { icon: '🚀', title: 'توصيل سريع', desc: 'شبكة توزيع تغطي ٢٧ محافظة خلال ٤٨ ساعة' },
+        { icon: '🚀', title: 'توصيل محلي ودولي', desc: 'توصيل سريع داخل جميع محافظات مصر، وشحن دولي لجميع عملائنا ومستوردينا' },
         { icon: '♻️', title: 'صديق للبيئة', desc: 'تركيبات آمنة ومستدامة لحماية كوكبنا' },
         { icon: '🏆', title: 'ضمان الجودة', desc: 'كل منتج مضمون أو يُستبدل فوراً بدون شروط' },
         { icon: '📞', title: 'دعم مستمر', desc: 'فريق خدمة عملاء متاح ٦ أيام في الأسبوع' },
@@ -65,8 +65,8 @@ export const translations = {
     // PRODUCTS
     products: {
       badge: 'معرض المنتجات',
-      title: 'تشكيلتنا المتميزة',
-      subtitle: 'جودة تلمسها، نقاء تشعر به — ARASCO في كل تفصيلة من يومك',
+      title: 'منتجاتنا',
+      subtitle: 'نقدم لك تشكيلة واسعة من المنتجات التي تلبي كافة احتياجاتك اليومية بأعلى معايير الجودة',
       categories: [
         {
           id: 'foameen',
@@ -161,7 +161,7 @@ export const translations = {
     vision: {
       badge: 'رؤيتنا',
       visionTitle: 'رؤيتنا',
-      visionText: 'أن تكون ARASCO الاختيار الأول للأسرة المصرية والعربية في منتجات النظافة والعناية، ونُصدّر فخر الصناعة المصرية للعالم.',
+      visionText: 'أن تكون ARASCO الاختيار الأول للجميع في منتجات النظافة والعناية، ونقدم فخر الصناعة والجودة للعالم أجمع.',
       missionTitle: 'رسالتنا',
       missionText: 'تقديم منتجات نظافة وعناية شخصية عالية الجودة بأسعار عادلة، مع الالتزام بأعلى معايير السلامة والاستدامة البيئية والمسؤولية الاجتماعية.',
       valuesTitle: 'قيمنا',
@@ -178,12 +178,12 @@ export const translations = {
     quality: {
       badge: 'معايير الجودة',
       title: 'جودة لا تقبل التنازل',
-      subtitle: 'كل منتج يمر بـ ١٨ مرحلة فحص ومراقبة قبل أن يصل إليك',
+      subtitle: 'كل منتج يمر بمراحل فحص ومراقبة دقيقة قبل أن يصل إليك',
       steps: [
         { num: '01', title: 'اختيار المواد الخام', desc: 'فحص دقيق لكل المواد قبل الدخول للخط الإنتاجي' },
         { num: '02', title: 'تطوير الفورمولا', desc: 'فريق بحثي متخصص يطور التركيبات في مختبراتنا' },
         { num: '03', title: 'الإنتاج الرقابي', desc: 'خطوط إنتاج تعمل بأعلى معايير الصحة والسلامة' },
-        { num: '04', title: 'فحص الجودة', desc: '١٨+ اختبار جودة لكل دفعة إنتاج قبل التعبئة' },
+        { num: '04', title: 'فحص الجودة', desc: 'اختبارات جودة صارمة لكل دفعة إنتاج قبل التعبئة' },
         { num: '05', title: 'الموافقة النهائية', desc: 'تحليل مستقل بمختبرات معتمدة قبل الشحن' },
         { num: '06', title: 'التسليم الآمن', desc: 'تغليف محكم وتخزين مثالي حتى وصول المنتج لك' },
       ],
@@ -195,7 +195,7 @@ export const translations = {
     cta: {
       badge: '🤝 وصّلك مستعد تكبّر أعمالك؟',
       title: 'مستعد تكبّر أعمالك؟',
-      subtitle: 'سواء كنت تاجر جملة أو صاحب محل أو موزع — ARASCO شريكك الأمين في النجاح',
+      subtitle: 'سواء كنت تاجر جملة، صاحب متجر، موزع، أو مستورد — ARASCO شريكك الأمين في النجاح',
       btn1: '📋 اطلب كتالوج الأسعار',
       btn2: '💬 تواصل على واتساب',
       btn3: '📞 اتصل بينا دلوقتي',
@@ -235,14 +235,14 @@ export const translations = {
     },
 
     hero: {
-      badge: '🏆 World-Class Egyptian Quality',
+      badge: '🏆 World-Class Quality',
       title1: 'Cleanliness',
       title2: 'Beyond Compare',
-      title3: 'Made in Egypt',
-      subtitle: 'ARASCO — Where authentic Egyptian craftsmanship meets world-class manufacturing standards. Detergents, personal care & cosmetics trusted by millions.',
+      title3: '',
+      subtitle: 'ARASCO — Where authentic quality meets world-class manufacturing standards. Detergents, personal care & cosmetics trusted by millions.',
       cta1: '📋 Request Wholesale Price',
       cta2: 'Explore Products',
-      stat1: 'Years Experience',
+      stat1: 'Long Experience',
       stat2: 'Premium Products',
       stat3: 'Happy Clients',
       stat4: 'Governorates',
@@ -250,11 +250,11 @@ export const translations = {
 
     about: {
       badge: 'Our Story',
-      title: 'From the Heart of Egypt to Every Home',
-      p1: 'ARASCO is not just a factory — it\'s a true Egyptian success story. We started with a simple dream: providing high-quality cleaning and personal care products at prices that suit every Egyptian family.',
-      p2: 'Today, we\'re proud to operate advanced production lines meeting the latest international standards, with a team of specialized chemists and engineers, and a distribution network covering all of Egypt.',
-      p3: 'Every drop of our products carries our commitment to quality, transparency, and continuous innovation in service of the Egyptian family.',
-      card1: { title: '100% Local Manufacturing', desc: 'Every product made by Egyptian hands on Egyptian soil' },
+      title: 'From the Heart of Egypt to the World',
+      p1: 'ARASCO is not just a company — it\'s an inspiring success story. We started with a simple dream: providing high-quality cleaning and personal care products at prices that suit everyone.',
+      p2: 'Today, we\'re proud to operate advanced production lines meeting the latest international standards, with a team of specialized chemists and engineers, and a distribution network covering all regions.',
+      p3: 'Every drop of our products carries our commitment to quality, transparency, and continuous innovation in service of everyone.',
+      card1: { title: 'High-Quality Manufacturing', desc: 'Every product is made by professionals with highest precision' },
       card2: { title: 'Premium Raw Materials', desc: 'We select the finest imported and local raw materials' },
       card3: { title: 'Strict Quality Control', desc: 'Every production batch undergoes 18+ quality tests' },
     },
@@ -267,7 +267,7 @@ export const translations = {
         { icon: '💰', title: 'Competitive Pricing', desc: 'Best quality at prices that suit wholesalers and retailers' },
         { icon: '🏭', title: 'Egyptian Manufacturing', desc: 'Fully integrated factory with latest technologies in Egypt' },
         { icon: '🔬', title: 'R&D Excellence', desc: 'Specialized scientific team continuously improving formulas' },
-        { icon: '🚀', title: 'Fast Delivery', desc: 'Distribution network covering 27 governorates within 48 hours' },
+        { icon: '🚀', title: 'Local & Global Delivery', desc: 'Fast delivery across all Egyptian governorates, and international shipping for our global clients and importers' },
         { icon: '♻️', title: 'Eco-Friendly', desc: 'Safe and sustainable formulations to protect our planet' },
         { icon: '🏆', title: 'Quality Guarantee', desc: 'Every product guaranteed or replaced immediately, no conditions' },
         { icon: '📞', title: 'Continuous Support', desc: 'Customer service team available 6 days a week' },
@@ -277,8 +277,8 @@ export const translations = {
 
     products: {
       badge: 'Product Gallery',
-      title: 'Our Premium Collection',
-      subtitle: 'Quality you can feel, purity you can trust — ARASCO in every detail of your day',
+      title: 'Our Products',
+      subtitle: 'We offer a wide range of products that meet all your daily needs with the highest quality standards',
       categories: [
         {
           id: 'foameen',
@@ -372,7 +372,7 @@ export const translations = {
     vision: {
       badge: 'Our Vision',
       visionTitle: 'Our Vision',
-      visionText: 'To be the first choice for Egyptian and Arab families in cleaning and personal care products, and to export the pride of Egyptian industry to the world.',
+      visionText: 'To be everyone\'s first choice in cleaning and personal care products, exporting the pride of industry and quality to the whole world.',
       missionTitle: 'Our Mission',
       missionText: 'Providing high-quality cleaning and personal care products at fair prices, while adhering to the highest standards of safety, environmental sustainability and social responsibility.',
       valuesTitle: 'Our Values',
@@ -388,12 +388,12 @@ export const translations = {
     quality: {
       badge: 'Quality Standards',
       title: 'Quality That Never Compromises',
-      subtitle: 'Every product passes through 18 inspection and control stages before reaching you',
+      subtitle: 'Every product passes through rigorous inspection and control stages before reaching you',
       steps: [
         { num: '01', title: 'Raw Material Selection', desc: 'Precise inspection of all materials before entering the production line' },
         { num: '02', title: 'Formula Development', desc: 'Specialized research team develops formulations in our laboratories' },
         { num: '03', title: 'Controlled Production', desc: 'Production lines operating at the highest health and safety standards' },
-        { num: '04', title: 'Quality Inspection', desc: '18+ quality tests for every production batch before packaging' },
+        { num: '04', title: 'Quality Inspection', desc: 'Rigorous quality tests for every production batch before packaging' },
         { num: '05', title: 'Final Approval', desc: 'Independent analysis by accredited laboratories before shipping' },
         { num: '06', title: 'Safe Delivery', desc: 'Tight packaging and optimal storage until the product reaches you' },
       ],
@@ -404,7 +404,7 @@ export const translations = {
     cta: {
       badge: '🤝 Ready to Grow Your Business?',
       title: 'Ready to Grow Your Business?',
-      subtitle: 'Whether you\'re a wholesaler, retailer, or distributor — ARASCO is your trusted partner in success',
+      subtitle: 'Whether you\'re a wholesaler, retailer, distributor, or international importer — ARASCO is your trusted partner in success',
       btn1: '📋 Request Price Catalog',
       btn2: '💬 WhatsApp Us',
       btn3: '📞 Call Us Now',
@@ -422,7 +422,7 @@ export const translations = {
       madeIn: '🇪🇬 Proudly Made in Egypt',
       links: ['Home', 'About', 'Products', 'Why Us', 'Quality', 'Contact'],
       productLinks: ['Home Cleaners', 'Skin Care', 'Beauty Products'],
-      address: 'Beni Suef — Al-Wastani — Kom Abi Radi — Industrial Zone',
+      address: 'Beni Suef — Al-Wasta — Kom Abou Radi — Industrial Zone',
       email: 'info@arascocompany.com',
       phone: '+20 109 757 7908',
     },

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLang } from '../context/LangContext';
 
@@ -99,17 +99,81 @@ function FloatingBlob({ className, color, size = 400, delay = 0 }) {
   );
 }
 
-/* Stat Counter */
-function StatCard({ value, label, isRTL }) {
+/* Stat Feature */
+function StatFeature({ label, isRTL, icon }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="glass rounded-2xl px-6 py-4 text-center flex flex-col items-center gap-1 hover:bg-white/15 transition-colors duration-300"
+      className="glass rounded-2xl px-4 py-4 text-center flex flex-col items-center justify-center gap-2 hover:bg-white/15 transition-colors duration-300"
     >
-      <span className="text-3xl md:text-4xl font-black text-white leading-none">{value}+</span>
-      <span className="text-white/70 text-xs md:text-sm font-medium">{label}</span>
+      <span className="text-3xl">{icon}</span>
+      <span className="text-white font-bold text-sm leading-tight">{label}</span>
+    </motion.div>
+  );
+}
+
+/* Interactive 3D Card */
+function InteractiveCard() {
+  const cardRef = useRef(null);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Calculate rotation (-15 to 15 degrees)
+    const rotX = ((y - centerY) / centerY) * -15;
+    const rotY = ((x - centerX) / centerX) * 15;
+    
+    setRotateX(rotX);
+    setRotateY(rotY);
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{ rotateX, rotateY }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      style={{ perspective: 1000 }}
+      className="relative z-10 w-72 h-80 md:w-96 md:h-[400px] cursor-pointer"
+    >
+      <div 
+        className="w-full h-full rounded-[2.5rem] p-8 border-4 border-white/20 shadow-2xl flex flex-col items-center justify-center gap-6 overflow-hidden relative"
+        style={{
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-red/20 to-brand-navy/20 mix-blend-overlay"></div>
+        <motion.div 
+          animate={{ scale: [1, 1.05, 1], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          className="text-7xl drop-shadow-2xl z-10"
+        >
+          ✨
+        </motion.div>
+        <h3 className="text-3xl font-black text-white text-center z-10 drop-shadow-md tracking-wider">
+          ARASCO
+        </h3>
+        <p className="text-white/80 text-center font-medium z-10">
+          Premium Quality <br/> Since Day One
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -162,7 +226,6 @@ export default function Hero() {
             <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
               <span className="block">{h.title1}</span>
               <span className="block gradient-text-red">{h.title2}</span>
-              <span className="block text-white/80 text-3xl md:text-4xl lg:text-5xl mt-2">{h.title3}</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -196,88 +259,24 @@ export default function Hero() {
             {/* Stats */}
             <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                { value: '10', label: h.stat1 },
-                { value: '50', label: h.stat2 },
-                { value: '100K', label: h.stat3 },
-                { value: '27', label: h.stat4 },
+                { icon: '⭐', label: h.stat1 },
+                { icon: '✨', label: h.stat2 },
+                { icon: '🤝', label: h.stat3 },
+                { icon: '🌍', label: h.stat4 },
               ].map((s, i) => (
-                <StatCard key={i} value={s.value} label={s.label} isRTL={isRTL} />
+                <StatFeature key={i} icon={s.icon} label={s.label} isRTL={isRTL} />
               ))}
             </motion.div>
           </motion.div>
 
           {/* Visual Side */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-            className="relative hidden lg:flex items-center justify-center"
+            className="relative hidden lg:flex items-center justify-center perspective-1000"
           >
-            {/* Giant glowing orb */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-              className="absolute w-96 h-96 rounded-full"
-              style={{
-                background: 'conic-gradient(from 0deg, #E31E24, #1B3A6B, #2A5298, #E31E24)',
-                filter: 'blur(2px)',
-                opacity: 0.3,
-              }}
-            />
-
-            {/* Center Logo Display */}
-            <div className="relative z-10 w-64 h-64 md:w-80 md:h-80 bg-white rounded-[2.5rem] shadow-2xl flex items-center justify-center p-6 border-4 border-white/20">
-              <img
-                src="/arasco-logo.png"
-                alt="ARASCO Detergent Factory"
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  e.target.parentElement.innerHTML = `
-                    <div class="w-full h-full flex flex-col items-center justify-center gap-3">
-                      <div class="w-full bg-[#1B3A6B] rounded-2xl py-6 flex items-center justify-center">
-                        <span class="text-white font-black text-4xl tracking-widest">ARASCO</span>
-                      </div>
-                      <div class="w-full bg-[#E31E24] rounded-xl py-3 flex items-center justify-center">
-                        <span class="text-white font-semibold text-lg tracking-wide">Detergent Factory</span>
-                      </div>
-                    </div>
-                  `;
-                }}
-              />
-            </div>
-
-            {/* Floating badges */}
-            <motion.div
-              className="absolute top-4 right-0 glass border border-white/20 rounded-2xl px-4 py-3 text-white"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <div className="text-xs font-semibold opacity-70">{isRTL ? 'معتمد من' : 'Certified by'}</div>
-              <div className="text-sm font-black">ISO 9001</div>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-8 left-0 glass border border-white/20 rounded-2xl px-4 py-3 text-white"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">🇪🇬</span>
-                <div>
-                  <div className="text-xs font-semibold opacity-70">{isRTL ? 'صُنع في' : 'Made in'}</div>
-                  <div className="text-sm font-black">{isRTL ? 'مصر' : 'Egypt'}</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-32 right-4 glass border border-brand-red/40 bg-brand-red/10 rounded-2xl px-4 py-3 text-white"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-            >
-              <div className="text-xs font-semibold opacity-70">{isRTL ? 'منتجات' : 'Products'}</div>
-              <div className="text-2xl font-black text-brand-red">50+</div>
-            </motion.div>
+            <InteractiveCard />
           </motion.div>
         </div>
       </div>

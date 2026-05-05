@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { useLang } from '../context/LangContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Footer() {
   const { t, isRTL } = useLang();
   const f = t.footer;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const socialLinks = [
     {
@@ -135,7 +138,17 @@ export default function Footer() {
                 return (
                   <li key={i}>
                     <button
-                      onClick={() => document.getElementById(ids[i])?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => {
+                        if (ids[i] === 'products') {
+                          navigate('/products');
+                          return;
+                        }
+                        if (location.pathname !== '/') {
+                          navigate(`/#${ids[i]}`);
+                          return;
+                        }
+                        document.getElementById(ids[i])?.scrollIntoView({ behavior: 'smooth' });
+                      }}
                       className="text-white/60 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2 group"
                     >
                       <span className="w-1.5 h-1.5 bg-brand-red rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -163,7 +176,7 @@ export default function Footer() {
               {f.productLinks.map((link, i) => (
                 <li key={i}>
                   <button
-                    onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => navigate('/products')}
                     className="text-white/60 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 bg-brand-red rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />

@@ -265,8 +265,8 @@ export default function Products() {
         >
           <div className="bg-white/50 backdrop-blur-sm p-5 rounded-2xl border border-brand-navy/5 text-center shadow-sm">
             <div className="text-3xl mb-3">🚚</div>
-            <h4 className="font-bold text-brand-navy mb-1">{isRTL ? 'توصيل لجميع المحافظات' : 'Nationwide Delivery'}</h4>
-            <p className="text-brand-muted text-sm">{isRTL ? 'يوصلك لحد بيتك أو متجرك خلال ٧٢ ساعة' : 'Delivered to your home or store within 72 hours'}</p>
+            <h4 className="font-bold text-brand-navy mb-1">{isRTL ? 'توصيل محلي ودولي' : 'Local & Global Delivery'}</h4>
+            <p className="text-brand-muted text-sm">{isRTL ? 'شحن سريع لجميع محافظات مصر وتصدير لكافة أنحاء العالم' : 'Fast shipping to all Egyptian governorates and exporting worldwide'}</p>
           </div>
           <div className="bg-white/50 backdrop-blur-sm p-5 rounded-2xl border border-brand-navy/5 text-center shadow-sm">
             <div className="text-3xl mb-3">📦</div>
@@ -274,9 +274,9 @@ export default function Products() {
             <p className="text-brand-muted text-sm">{isRTL ? 'نضمن وصول المنتجات بأفضل حالة' : 'We ensure products arrive in perfect condition'}</p>
           </div>
           <div className="bg-white/50 backdrop-blur-sm p-5 rounded-2xl border border-brand-navy/5 text-center shadow-sm">
-            <div className="text-3xl mb-3">👥</div>
-            <h4 className="font-bold text-brand-navy mb-1">{isRTL ? 'للأفراد والتجار' : 'For Individuals & Traders'}</h4>
-            <p className="text-brand-muted text-sm">{isRTL ? 'متوفر بأسعار تنافسية تناسب الجميع' : 'Available at competitive prices for everyone'}</p>
+            <div className="text-3xl mb-3">🌍</div>
+            <h4 className="font-bold text-brand-navy mb-1">{isRTL ? 'للتجار والمستوردين' : 'For Traders & Importers'}</h4>
+            <p className="text-brand-muted text-sm">{isRTL ? 'عروض وأسعار تنافسية تلبي احتياجات الموزعين والمستوردين' : 'Competitive offers and prices meeting the needs of distributors and importers'}</p>
           </div>
         </motion.div>
 

@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLang } from '../context/LangContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const { t, lang, toggleLang, isRTL } = useLang();
@@ -8,8 +9,11 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const sections = ['home', 'about', 'products', 'whyUs', 'quality', 'contact'];
-  const sectionIds = { home: 'hero', about: 'about', products: 'products', whyUs: 'why-us', quality: 'quality', contact: 'cta' };
+  const sectionIds = { home: 'hero', about: 'about', products: 'products-page', whyUs: 'why-us', quality: 'quality', contact: 'cta' };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -17,9 +21,29 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location]);
+
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
+    
+    if (id === 'products-page') {
+      navigate('/products');
+      return;
+    }
+    
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+      return;
+    }
+    
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
