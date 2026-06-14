@@ -152,6 +152,34 @@ export const translations = {
             },
           ],
         },
+        {
+          id: 'lutx',
+          name: 'علامة لوتكس (LUTX)',
+          icon: '🫧',
+          logo: '/lutx-2.jpg',
+          desc: 'مسحوق غسيل للملابس — قوة الإنزيمات وبياض متقدم من أول استخدام',
+          brandLink: 'https://www.facebook.com/share/1EfHoYsgnY/',
+          products: [
+            { 
+              name: 'لوتكس مسحوق غسيل ٣ كيلو', 
+              desc: 'قوة النظافة اللي تلمع! يزيل البقع الصعبة ويترك الملابس لامعة من أول غسلة. تركيبة إنزيمية متطورة وبياض استثنائي.', 
+              tag: 'إطلاق جديد!',
+              image: '/lutx-promo.jpg'
+            },
+            { 
+              name: 'لوتكس — Advanced Whitening 3Kg', 
+              desc: 'بياض متقدم يبرز إشراقة الملابس، رغوة فعّالة تغسل بكفاءة أكبر، انتعاش بدوم وراحة منعشة تدوم طويلاً.', 
+              tag: 'الأكثر مبيعاً',
+              image: '/lutx-1.jpg'
+            },
+            { 
+              name: 'مسحوق لوتكس — Enzyme Action', 
+              desc: 'مناسب لكل الغسالات أوتوماتيك وعادي، آمن على الملابس ومحافظ على الألوان والأنسجة. جودة فاخرة وسعر أقل مما تتوقع!', 
+              tag: 'فرصة للتجار',
+              image: '/lutx-2.jpg'
+            },
+          ],
+        },
       ],
       requestPrice: 'اطلب عرض سعر',
       viewAll: 'عرض جميع المنتجات',
@@ -361,6 +389,34 @@ export const translations = {
               desc: '240 ML family size, extracted from the finest roses for your skin\'s purity.', 
               tag: 'Premium',
               image: '/gazelle-rose-2.jpg'
+            },
+          ],
+        },
+        {
+          id: 'lutx',
+          name: 'LUTX Brand',
+          icon: '🫧',
+          logo: '/lutx-2.jpg',
+          desc: 'Clothes Powder Detergent — Enzyme power & advanced whitening from the very first wash',
+          brandLink: 'https://www.facebook.com/share/1EfHoYsgnY/',
+          products: [
+            { 
+              name: 'LUTX Powder Detergent 3KG', 
+              desc: 'The cleaning power that shines! Removes stubborn stains and leaves clothes dazzling from the first wash. Advanced enzyme formula with exceptional whitening.', 
+              tag: 'New Launch!',
+              image: '/lutx-promo.jpg'
+            },
+            { 
+              name: 'LUTX — Advanced Whitening 3Kg', 
+              desc: 'Advanced whitening that enhances clothes brightness, effective foam washes with greater efficiency, long-lasting freshness that lingers.', 
+              tag: 'Best Seller',
+              image: '/lutx-1.jpg'
+            },
+            { 
+              name: 'LUTX Powder — Enzyme Action', 
+              desc: 'Suitable for all automatic and manual washing machines, safe on clothes and preserves colors and fabrics. Premium quality at a price less than you expect!', 
+              tag: 'Traders Deal',
+              image: '/lutx-2.jpg'
             },
           ],
         },
